@@ -5,11 +5,11 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "zahlen-tanz"
 version = "0.1.0"
-description = "Zahlen Tanz"
+description = "A collection of Python experiments visualizing chaotic systems and differential equations."
 authors = [
-    {name = "Adeeb", email = "adeeb.armalite@gmail.com"}
+    {name = "Your Name", email = "youremail@example.com"}
 ]
-license = "MIT"
+license = { file = "LICENSE" }
 readme = "README.md"
 dependencies = [
     "numpy",

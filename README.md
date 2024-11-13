@@ -16,29 +16,17 @@ git clone https://github.com/armalite/zahlen-tanz.git
 cd zahlen-tanz
 ```
 
-2. Set Up a Virtual Environment:
+2. Install the Project:
 ```bash
-python3 -m venv venv
+make install
 ```
 
-3. Activate the Virtual Environment:
+This will:
 
- * On Linux/macOS:
-```bash
-source venv/bin/activate
-```
-On Windows:
-```bash
-venv\Scripts\activate
-```
+ * Set up a virtual environment.
+ * Install all required Python dependencies.
 
-4. Install Dependencies:
-```bash
-pip install --upgrade pip setuptools wheel
-pip install .
-```
-
-5. Run the Script:
+3. Run the Script:
 ```bash
 make run
 ```

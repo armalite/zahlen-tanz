@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import tkinter as tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from itertools import cycle 
 
 # Parameters for the generalized Rössler attractor
 a, b, c, d = 0.2, 0.2, 5.7, 1.0
@@ -38,7 +39,7 @@ ax.set_ylim((-15, 15))
 ax.set_zlim((-5, 25))
 
 # Remove chart elements for a cleaner visualization
-ax.set_axis_off()  # Turns off axis lines, ticks, and labels
+ax.set_axis_off() 
 
 # Initialize the line for the animation with a color gradient
 line, = ax.plot([], [], [], lw=2, color='cyan')  # Initial line color
@@ -50,14 +51,14 @@ def update(frame):
     line.set_3d_properties(z[:frame])
     
     # Change line color dynamically for a gradient effect
-    line.set_color(plt.cm.plasma(frame / len(t_eval)))  # Color changes with frame
+    line.set_color(plt.cm.plasma(frame / len(t_eval)))  
     return line,
 
-# Faster animation with skipping frames and reduced delay
+# Continuous animation with infinite looping
 ani = FuncAnimation(
     fig,
     update,
-    frames=range(0, len(t_eval), 3),  # Skip every 3 frames
+    frames=cycle(range(0, len(t_eval), 3)), 
     interval=5,  # Reduce delay between frames
     blit=True    # Enable optimized rendering
 )
@@ -68,8 +69,8 @@ canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
 # Add a "Quit" button to close the application
 def quit_application():
-    root.quit()  # Stops the tkinter mainloop
-    root.destroy()  # Destroys the tkinter window
+    root.quit() 
+    root.destroy() 
 
 button = tk.Button(root, text="Quit", command=quit_application)
 button.pack(side=tk.BOTTOM)

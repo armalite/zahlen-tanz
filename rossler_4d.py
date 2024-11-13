@@ -30,24 +30,34 @@ x, y, z, w = solution.y
 root = tk.Tk()
 root.title("4D Rössler Attractor Animation")
 
-# Create the matplotlib figure and axis
-fig = plt.figure(figsize=(8, 6))
-ax = fig.add_subplot(111, projection="3d")
+# Create the matplotlib figure and axis with a black background
+fig = plt.figure(figsize=(8, 6), facecolor='black')  # Set figure background to black
+ax = fig.add_subplot(111, projection="3d", facecolor='black')  # Set 3D plot background to black
 ax.set_xlim((-15, 15))
 ax.set_ylim((-15, 15))
 ax.set_zlim((-5, 25))
-ax.set_title("4D Rössler Attractor (3D Projection)")
-ax.set_xlabel("X")
-ax.set_ylabel("Y")
-ax.set_zlabel("Z")
 
-# Initialize the line for the animation
-line, = ax.plot([], [], [], lw=2)
+# Customize title and labels with white color
+ax.set_title("4D Rössler Attractor (3D Projection)", color='white')
+ax.set_xlabel("X", color='white')
+ax.set_ylabel("Y", color='white')
+ax.set_zlabel("Z", color='white')
 
-# Animation update function
+# Customize the grid and ticks
+ax.grid(False)  # Disable the grid for a cleaner look
+ax.tick_params(colors='white')  # Set tick colors to white
+
+# Initialize the line for the animation with a color gradient
+line, = ax.plot([], [], [], lw=2, color='cyan')  # Initial line color
+
+# Animation update function with changing colors
 def update(frame):
+    # Update the line data
     line.set_data(x[:frame], y[:frame])
     line.set_3d_properties(z[:frame])
+    
+    # Change line color dynamically for a gradient effect
+    line.set_color(plt.cm.plasma(frame / len(t_eval)))  # Color changes with frame
     return line,
 
 # Faster animation with skipping frames and reduced delay

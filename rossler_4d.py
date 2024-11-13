@@ -37,15 +37,8 @@ ax.set_xlim((-15, 15))
 ax.set_ylim((-15, 15))
 ax.set_zlim((-5, 25))
 
-# Customize title and labels with white color
-ax.set_title("4D Rössler Attractor (3D Projection)", color='white')
-ax.set_xlabel("X", color='white')
-ax.set_ylabel("Y", color='white')
-ax.set_zlabel("Z", color='white')
-
-# Customize the grid and ticks
-ax.grid(False)  # Disable the grid for a cleaner look
-ax.tick_params(colors='white')  # Set tick colors to white
+# Remove chart elements for a cleaner visualization
+ax.set_axis_off()  # Turns off axis lines, ticks, and labels
 
 # Initialize the line for the animation with a color gradient
 line, = ax.plot([], [], [], lw=2, color='cyan')  # Initial line color

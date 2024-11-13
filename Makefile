@@ -18,7 +18,7 @@ install: gui-setup venv
 	. $(VENV_DIR)/bin/activate && pip install .
 
 # Run the Python script
-run: install
+run: 
 	. $(VENV_DIR)/bin/activate && python zahlen.py
 
 # Clean up the environment

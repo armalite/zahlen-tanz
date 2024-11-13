@@ -19,7 +19,7 @@ install: gui-setup venv
 
 # Run the Python script
 run: install
-	. $(VENV_DIR)/bin/activate && python rossler_4d.py
+	. $(VENV_DIR)/bin/activate && python zahlen.py
 
 # Clean up the environment
 clean:
